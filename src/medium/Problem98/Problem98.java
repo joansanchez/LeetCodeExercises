@@ -1,4 +1,4 @@
-package easy;
+package medium.Problem98;
 
 import java.util.Stack;
 
@@ -33,7 +33,7 @@ public class Problem98 {
         return rightRecursive && leftRecursive;
     }
 
-    public boolean isValidBSTIterative(TreeNode root) {
+    public boolean isValidBST(TreeNode root) {
         if (root == null) return true;
         Stack<TreeNode> stack = new Stack<>();
         TreeNode pre = null;
@@ -50,7 +50,7 @@ public class Problem98 {
         return true;
     }
 
-    public boolean isValidBST(TreeNode root) {
+    public boolean isValidBST2(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 

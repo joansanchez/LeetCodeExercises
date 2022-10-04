@@ -1,5 +1,7 @@
-package easy;
+package medium;
 
+import medium.Problem98.Problem98;
+import medium.Problem98.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
