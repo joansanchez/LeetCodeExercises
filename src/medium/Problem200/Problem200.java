@@ -8,7 +8,7 @@ import java.util.Set;
 public class Problem200 {
     public int numIslands(char[][] grid) {
         Queue<Integer> queue = new LinkedList();
-        Set<Integer> test = new HashSet<>();
+
         return 0;
 
     }
