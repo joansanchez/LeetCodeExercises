@@ -54,19 +54,19 @@ public class Solution {
     public static void getDistances(Node nodesList[], int startNode){
         nodesList[startNode-1].setDist(0);
 
-        for(int i = 0; i < nodesList.length; ++i){
+        for(int i = 0; i < nodesList.length; ++i) {
             int minDistantIndex = getMinDistantNode(nodesList);
             Node actual = nodesList[minDistantIndex];
 
             actual.setVisited();
-            if(actual.getDist() == Integer.MAX_VALUE) actual.setDist(-1);
-
-            Set<Integer> adj = actual.getAdj();
-            adj.stream().forEach(nodeIndex -> {
-                Node neighbour = nodesList[nodeIndex];
-                if(!neighbour.isVisited() && neighbour.getDist() > actual.getDist() + distance)
-                    neighbour.setDist(actual.getDist() + distance);
-            });
+            if (actual.getDist() == Integer.MAX_VALUE) actual.setDist(-1);
+            else {
+                actual.getAdj().stream().forEach(nodeIndex -> {
+                    Node neighbour = nodesList[nodeIndex];
+                    if (!neighbour.isVisited() && neighbour.getDist() > actual.getDist() + distance)
+                        neighbour.setDist(actual.getDist() + distance);
+                });
+            }
 
         }
     }
@@ -75,6 +75,7 @@ public class Solution {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named HackerRank.BFSShortestReach.Solution. */
         Scanner scanner = new Scanner(System.in);
         int queries = Integer.parseInt(scanner.nextLine());
+
         for(int i = 0; i < queries; ++i){
             String[] graphInfo = scanner.nextLine().split(" ");
             int nodes = Integer.parseInt(graphInfo[0]);
